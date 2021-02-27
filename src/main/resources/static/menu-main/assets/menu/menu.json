@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "navbar": "Home"
+    },
+    {
+        "id": 2,
+        "navbar": "Employee"
+    },
+    {
+        "id": 3,
+        "navbar": "Project"
+    },
+    {
+        "id": 4,
+        "navbar": "Statistics"
+    },
+    {
+        "id": 5,
+        "navbar": "Availability"
+    },
+    {
+        "id": 6,
+        "navbar": "Reports"
+    },
+    {
+        "id": 6,
+        "navbar": "Registries"
+    }
+]
