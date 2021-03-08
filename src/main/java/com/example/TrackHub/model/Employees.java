@@ -1,12 +1,13 @@
 package com.example.TrackHub.model;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "tpc_employees")
@@ -54,9 +55,9 @@ public class Employees {
     public Employees() {
     }
 
-    public Employees(long id, String code, String fname, String lname, String display_name,
-                     LocalDateTime dob, String experience, long employees_role_id, String create_by,
-                     LocalDateTime create_date, String update_by, LocalDateTime update_date, String role) {
+    public Employees(final long id, final String code, final String fname, final String lname, final String display_name,
+            final LocalDateTime dob, final String experience, final long employees_role_id, final String create_by,
+            final LocalDateTime create_date, final String update_by, final LocalDateTime update_date, final String role) {
         this.id = id;
         this.fname = fname;
         this.lname = lname;
@@ -70,7 +71,6 @@ public class Employees {
         this.update_date = update_date;
         this.role = role;
     }
-
 
     @Override
     public String toString() {
@@ -108,7 +108,7 @@ public class Employees {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -116,7 +116,7 @@ public class Employees {
         return fname;
     }
 
-    public void setFname(String fname) {
+    public void setFname(final String fname) {
         this.fname = fname;
     }
 
@@ -124,7 +124,7 @@ public class Employees {
         return lname;
     }
 
-    public void setLname(String lname) {
+    public void setLname(final String lname) {
         this.lname = lname;
     }
 
@@ -132,7 +132,7 @@ public class Employees {
         return dob;
     }
 
-    public void setDob(LocalDateTime dob) {
+    public void setDob(final LocalDateTime dob) {
         this.dob = dob;
     }
 
@@ -140,7 +140,7 @@ public class Employees {
         return experience;
     }
 
-    public void setExperience(String experience) {
+    public void setExperience(final String experience) {
         this.experience = experience;
     }
 
@@ -148,7 +148,7 @@ public class Employees {
         return employees_role_id;
     }
 
-    public void setEmployees_role_id(Long employees_role_id) {
+    public void setEmployees_role_id(final Long employees_role_id) {
         this.employees_role_id = employees_role_id;
     }
 
@@ -156,7 +156,7 @@ public class Employees {
         return create_by;
     }
 
-    public void setCreate_by(String create_by) {
+    public void setCreate_by(final String create_by) {
         this.create_by = create_by;
     }
 
@@ -164,7 +164,7 @@ public class Employees {
         return create_date;
     }
 
-    public void setCreate_date(LocalDateTime create_date) {
+    public void setCreate_date(final LocalDateTime create_date) {
         this.create_date = create_date;
     }
 
@@ -172,7 +172,7 @@ public class Employees {
         return update_by;
     }
 
-    public void setUpdate_by(String update_by) {
+    public void setUpdate_by(final String update_by) {
         this.update_by = update_by;
     }
 
@@ -180,7 +180,7 @@ public class Employees {
         return update_date;
     }
 
-    public void setUpdate_date(LocalDateTime update_date) {
+    public void setUpdate_date(final LocalDateTime update_date) {
         this.update_date = update_date;
     }
 
@@ -188,7 +188,7 @@ public class Employees {
         return display_name;
     }
 
-    public void setDisplayName(String display_name) {
+    public void setDisplayName(final String display_name) {
         this.display_name = display_name;
     }
 }

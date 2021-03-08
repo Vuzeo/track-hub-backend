@@ -29,7 +29,7 @@ public class TeamMembers {
     public TeamMembers() {
     }
 
-    public TeamMembers(long id, Long team_id, Long team_member_id, Long team_member_role_id) {
+    public TeamMembers(final long id, final Long team_id, final Long team_member_id, final Long team_member_role_id) {
         this.id = id;
         this.team_id = team_id;
         this.team_member_id = team_member_id;
@@ -54,34 +54,31 @@ public class TeamMembers {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
-
 
     public Long getTeam_id() {
         return team_id;
     }
 
-    public void setTeam_id(Long team_id) {
+    public void setTeam_id(final Long team_id) {
         this.team_id = team_id;
     }
-
 
     public Long getTeam_member_id() {
         return team_member_id;
     }
 
-    public void setTeam_member_id(Long team_member_id) {
+    public void setTeam_member_id(final Long team_member_id) {
         this.team_member_id = team_member_id;
     }
-
 
     public Long getTeam_member_role_id() {
         return team_member_role_id;
     }
 
-    public void setTeam_member_role_id(Long team_member_role_id) {
+    public void setTeam_member_role_id(final Long team_member_role_id) {
         this.team_member_role_id = team_member_role_id;
     }
 }

@@ -1,7 +1,13 @@
 package com.example.TrackHub.model;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "tpc_teams")
@@ -46,13 +52,13 @@ public class Teams {
     public Teams() {
     }
 
-    public Teams(Long id, String name, Long assigned_project_id, Long team_lead_id, LocalDateTime valid_to,
-                 LocalDateTime valid_from, String create_by, String update_by, String code) {
+    public Teams(final Long id, final String name, final Long assigned_project_id, final Long team_lead_id, final LocalDateTime valid_to,
+            final LocalDateTime valid_from, final String create_by, final String update_by, final String code) {
     }
 
-    public Teams(long id, String code, String name, Long assigned_project_id, Long team_lead_id,
-                 LocalDateTime valid_from, LocalDateTime valid_to, String create_by, LocalDateTime create_date,
-                 String update_by, LocalDateTime update_date) {
+    public Teams(final long id, final String code, final String name, final Long assigned_project_id, final Long team_lead_id,
+            final LocalDateTime valid_from, final LocalDateTime valid_to, final String create_by, final LocalDateTime create_date,
+            final String update_by, final LocalDateTime update_date) {
         this.id = id;
         this.code = code;
         this.name = name;
@@ -70,7 +76,7 @@ public class Teams {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -78,7 +84,7 @@ public class Teams {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(final String code) {
         this.code = code;
     }
 
@@ -86,7 +92,7 @@ public class Teams {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -94,7 +100,7 @@ public class Teams {
         return assigned_project_id;
     }
 
-    public void setAssigned_project_id(Long assigned_project_id) {
+    public void setAssigned_project_id(final Long assigned_project_id) {
         this.assigned_project_id = assigned_project_id;
     }
 
@@ -102,7 +108,7 @@ public class Teams {
         return team_lead_id;
     }
 
-    public void setTeam_lead_id(Long team_lead_id) {
+    public void setTeam_lead_id(final Long team_lead_id) {
         this.team_lead_id = team_lead_id;
     }
 
@@ -110,7 +116,7 @@ public class Teams {
         return valid_from;
     }
 
-    public void setValid_from(LocalDateTime valid_from) {
+    public void setValid_from(final LocalDateTime valid_from) {
         this.valid_from = valid_from;
     }
 
@@ -118,7 +124,7 @@ public class Teams {
         return valid_to;
     }
 
-    public void setValid_to(LocalDateTime valid_to) {
+    public void setValid_to(final LocalDateTime valid_to) {
         this.valid_to = valid_to;
     }
 
@@ -126,7 +132,7 @@ public class Teams {
         return create_by;
     }
 
-    public void setCreate_by(String create_by) {
+    public void setCreate_by(final String create_by) {
         this.create_by = create_by;
     }
 
@@ -134,7 +140,7 @@ public class Teams {
         return create_date;
     }
 
-    public void setCreate_date(LocalDateTime create_date) {
+    public void setCreate_date(final LocalDateTime create_date) {
         this.create_date = create_date;
     }
 
@@ -142,7 +148,7 @@ public class Teams {
         return update_by;
     }
 
-    public void setUpdate_by(String update_by) {
+    public void setUpdate_by(final String update_by) {
         this.update_by = update_by;
     }
 
@@ -150,7 +156,7 @@ public class Teams {
         return update_date;
     }
 
-    public void setUpdate_date(LocalDateTime update_date) {
+    public void setUpdate_date(final LocalDateTime update_date) {
         this.update_date = update_date;
     }
 
