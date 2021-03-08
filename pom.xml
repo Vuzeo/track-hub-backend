@@ -10,10 +10,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>ZTrack</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>ZTrack</name>
-	<description>Demo project for Spring Boot</description>
+	<artifactId>Track-hub</artifactId>
+	<version>1.0</version>
+	<name>Track-hub</name>
+	<description>Backend logic for Track-hub</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
