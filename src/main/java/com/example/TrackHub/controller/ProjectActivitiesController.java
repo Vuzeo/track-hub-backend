@@ -5,22 +5,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.TrackHub.model.ProjectActivities;
-import com.example.TrackHub.repository.ProjectActivitiesRepository;
 import com.example.TrackHub.service.ProjectActivitiesService;
 
-@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/projectActivities")
 public class ProjectActivitiesController {
-
-    private ProjectActivitiesRepository projectActivitiesRepository;
     private ProjectActivitiesService projectActivitiesService;
 
     public ProjectActivitiesController(ProjectActivitiesService projectActivitiesService) {
         this.projectActivitiesService = projectActivitiesService;
     }
 
-    @RequestMapping(value = "/all")
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
     public ResponseEntity<Object> getProjectActivities() {
         return new ResponseEntity<>(projectActivitiesService.getProjectActivities(), HttpStatus.OK);
     }
@@ -29,13 +25,13 @@ public class ProjectActivitiesController {
     public ResponseEntity<Object>
     updateProjectActivity(@PathVariable("id") Long id, @RequestBody ProjectActivities projectActivities) {
         projectActivitiesService.updateProjectActivity(id, projectActivities);
-        return new ResponseEntity<>("Product is updated successfully", HttpStatus.OK);
+        return new ResponseEntity<>("Project activity is updated successfully", HttpStatus.OK);
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Object> deleteProjectActivity(@PathVariable("id") Long id) {
         projectActivitiesService.deleteProjectActivity(id);
-        return new ResponseEntity<>("Product is deleted successfully", HttpStatus.OK);
+        return new ResponseEntity<>("Project activity is deleted successfully", HttpStatus.OK);
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)

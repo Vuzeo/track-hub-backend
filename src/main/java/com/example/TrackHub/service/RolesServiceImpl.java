@@ -1,6 +1,8 @@
 package com.example.TrackHub.service;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.example.TrackHub.model.Roles;
 import com.example.TrackHub.repository.RolesRepository;
@@ -10,7 +12,7 @@ import java.util.List;
 
 @Service
 public class RolesServiceImpl implements RolesService {
-    RolesRepository rolesRepository;
+    private final RolesRepository rolesRepository;
 
     public RolesServiceImpl(RolesRepository rolesRepository) {
         this.rolesRepository = rolesRepository;
@@ -23,7 +25,11 @@ public class RolesServiceImpl implements RolesService {
 
     @Override
     public void updateRole(Long id, Roles roles) {
-        rolesRepository.deleteById(id);
+        if (!rolesRepository.existsById(id)) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        // Save under the path id so the row is updated in place and keeps its foreign keys
+        roles.setId(id);
         rolesRepository.save(roles);
     }
 

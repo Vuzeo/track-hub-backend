@@ -5,22 +5,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.TrackHub.model.Teams;
-import com.example.TrackHub.repository.TeamsRepository;
 import com.example.TrackHub.service.TeamsService;
 
-@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/teams")
 public class TeamsController {
 
     private TeamsService teamsService;
-    private TeamsRepository teamsRepository;
 
     public TeamsController(TeamsService teamsService) {
         this.teamsService = teamsService;
     }
 
-    @RequestMapping(value = "/all")
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
     public ResponseEntity<Object> getTeams() {
         return new ResponseEntity<>(teamsService.getTeams(), HttpStatus.OK);
     }
@@ -29,13 +26,13 @@ public class TeamsController {
     public ResponseEntity<Object>
     updateTeam(@PathVariable("id") Long id, @RequestBody Teams teams) {
         teamsService.updateTeam(id, teams);
-        return new ResponseEntity<>("Product is updated successfully", HttpStatus.OK);
+        return new ResponseEntity<>("Team is updated successfully", HttpStatus.OK);
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Object> deleteTeam(@PathVariable("id") Long id) {
         teamsService.deleteTeam(id);
-        return new ResponseEntity<>("Product is deleted successfully", HttpStatus.OK);
+        return new ResponseEntity<>("Team is deleted successfully", HttpStatus.OK);
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)

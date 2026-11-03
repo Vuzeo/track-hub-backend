@@ -5,22 +5,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.TrackHub.model.Employees;
-import com.example.TrackHub.repository.EmployeesRepository;
 import com.example.TrackHub.service.EmployeesService;
 
-@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/employees")
 public class EmployeesController {
 
     private EmployeesService employeesService;
-    private EmployeesRepository employeesRepository;
 
     public EmployeesController(EmployeesService employeesService) {
         this.employeesService = employeesService;
     }
 
-    @RequestMapping(value = "/all")
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
     public ResponseEntity<Object> getEmployees() {
         return new ResponseEntity<>(employeesService.getEmployees(), HttpStatus.OK);
     }
@@ -29,7 +26,7 @@ public class EmployeesController {
     public ResponseEntity<Object>
     updateEmployees(@PathVariable("id") Long id, @RequestBody Employees employees) {
         employeesService.updateEmployees(id, employees);
-        return new ResponseEntity<>("Product is updated successfully", HttpStatus.OK);
+        return new ResponseEntity<>("Employee is updated successfully", HttpStatus.OK);
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)

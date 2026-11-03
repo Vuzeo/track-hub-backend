@@ -1,6 +1,8 @@
 package com.example.TrackHub.service;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.example.TrackHub.model.Worklog;
 import com.example.TrackHub.repository.WorklogRepository;
@@ -10,7 +12,7 @@ import java.util.List;
 
 @Service
 public class WorklogServiceImpl implements WorklogService {
-    static WorklogRepository worklogRepository;
+    private final WorklogRepository worklogRepository;
 
     public WorklogServiceImpl(WorklogRepository worklogRepository) {
         this.worklogRepository = worklogRepository;
@@ -23,7 +25,11 @@ public class WorklogServiceImpl implements WorklogService {
 
     @Override
     public void updateWorklog(Long id, Worklog worklog) {
-        worklogRepository.deleteById(id);
+        if (!worklogRepository.existsById(id)) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        // Save under the path id so the row is updated in place and keeps its foreign keys
+        worklog.setId(id);
         worklogRepository.save(worklog);
     }
 

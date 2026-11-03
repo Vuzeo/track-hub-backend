@@ -5,22 +5,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.TrackHub.model.TeamMembers;
-import com.example.TrackHub.repository.TeamMembersRepository;
 import com.example.TrackHub.service.TeamMembersService;
 
-@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/teamMembers")
 public class TeamMembersController {
 
     private TeamMembersService teamMembersService;
-    private TeamMembersRepository teamMembersRepository;
 
     public TeamMembersController(TeamMembersService teamMembersService) {
         this.teamMembersService = teamMembersService;
     }
 
-    @RequestMapping(value = "/all")
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
     public ResponseEntity<Object> getTeamMembers() {
         return new ResponseEntity<>(teamMembersService.getTeamMembers(), HttpStatus.OK);
     }
